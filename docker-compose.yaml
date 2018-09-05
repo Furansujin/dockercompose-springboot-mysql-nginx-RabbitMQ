@@ -1,26 +1,6 @@
-version: '3'
+version: "3.1"
+
 services:
-  nginx:
-   container_name: some-nginx
-   image: nginx:1.13
-   restart: always
-   ports:
-   - 80:80
-   - 443:443
-   volumes:
-   - ./nginx/conf.d:/etc/nginx/conf.d
- 
-  mysql:
-   container_name: some-mysql
-   image: mysql/mysql-server:5.7
-   environment:
-    MYSQL_DATABASE: test
-    MYSQL_ROOT_PASSWORD: hellokoding
-    MYSQL_ROOT_HOST: '%'
-   ports:
-   - "3306:3306"
-   restart: always
-  
   app:
     restart: always
     build: ./app
@@ -30,7 +10,18 @@ services:
       - ~/.m2:/root/.m2
     expose:
       - "8080"
+    ports:
+      - 8080:8080
     command: mvn clean spring-boot:run
     depends_on:
-      - nginx
-      - mysql
+      - mongodb
+      - rabbitmq
+  mongodb:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+  rabbitmq:
+    image: rabbitmq:3.5.3-management
+    ports:
+      - 5672:5672
+      - 15672:15672
