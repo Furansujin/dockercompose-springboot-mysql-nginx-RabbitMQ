@@ -8,4 +8,5 @@
     <h1>test Docker Compose with Spring Boot, MySQL, NGINX</h1>
     <p></p>
 </body>
+<script src="js/main.js"></script>
 </html>

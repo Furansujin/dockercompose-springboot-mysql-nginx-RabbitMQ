@@ -1,17 +1,34 @@
 package com.hellokoding.springboot;
 
+
+import com.hellokoding.springboot.domain.Greeting;
+import com.hellokoding.springboot.domain.repositories.GreetingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.logging.Logger;
+import java.util.Set;
 
 @Controller
 public class IndexController {
-    private final Logger logger = Logger.getLogger(this.getClass().getName());
 
-    @GetMapping("/")
-    public String index(Model model) {
-        return "index";
+    @Autowired
+    private GreetingRepository greetingRepository;
+
+    @GetMapping("/greeting")
+    public String greetingForm(Model model) {
+        final Model greeting = model.addAttribute("greeting", new Greeting());
+        return "greeting";
     }
+
+    @PostMapping("/greeting")
+    public String greetingSubmit(@ModelAttribute Greeting greeting) {
+        greetingRepository.add(greeting);
+        return "result";
+    }
+
+
 }
