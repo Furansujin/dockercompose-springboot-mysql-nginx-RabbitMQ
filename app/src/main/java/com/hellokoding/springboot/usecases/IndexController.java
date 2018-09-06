@@ -1,4 +1,4 @@
-package com.hellokoding.springboot;
+package com.hellokoding.springboot.usecases;
 
 
 import com.hellokoding.springboot.domain.Greeting;
