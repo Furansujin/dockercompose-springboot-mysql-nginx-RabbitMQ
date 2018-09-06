@@ -19,10 +19,10 @@ public class controllerTest {
     @Autowired
     private GreetingRepository greetingRepository;
 
-
     @RequestMapping(value = "/liste",method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Set<Greeting> getAll() {
+    public Set<Greeting> getAll() throws InterruptedException {
+
         return greetingRepository.all();
     }
 

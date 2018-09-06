@@ -14,14 +14,9 @@ services:
       - 8080:8080
     command: mvn clean spring-boot:run
     depends_on:
-      - mongodb
       - rabbitmq
-  mongodb:
-    image: mongo:latest
-    ports:
-      - 27017:27017
   rabbitmq:
-    image: rabbitmq:3.5.3-management
+    image: rabbitmq:3.7-management
     ports:
       - 5672:5672
       - 15672:15672

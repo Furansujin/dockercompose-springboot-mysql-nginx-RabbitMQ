@@ -9,12 +9,18 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class WebApplication {
+
+
+
     @Bean
     public GreetingRepository greetingRepository() {
         return new InMemoryGreetingRepository();
     }
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(WebApplication.class, args);
+
     }
+
 }
 
