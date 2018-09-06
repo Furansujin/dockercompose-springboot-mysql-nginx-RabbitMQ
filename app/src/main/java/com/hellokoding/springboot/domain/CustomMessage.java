@@ -2,15 +2,12 @@ package com.hellokoding.springboot.domain;
 
 import java.io.Serializable;
 
-public final class CustomMessage implements Serializable {
+public final class CustomMessage {
 
     private String text;
     private int priority;
     private boolean secret;
 
-    // Default constructor is needed to deserialize JSON
-    public CustomMessage() {
-    }
 
     public CustomMessage(String text, int priority, boolean secret) {
         this.text = text;

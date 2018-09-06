@@ -1,4 +1,4 @@
-package com.hellokoding.springboot.adapters.mq;
+package com.hellokoding.springboot.adapters;
 
 public class GlobalConfig {
 
