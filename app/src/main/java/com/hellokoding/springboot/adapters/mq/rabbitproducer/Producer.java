@@ -10,7 +10,7 @@ public class Producer {
 
     public final static String routingKey = "device-sample";
 
-    @Autowired
+   //au
     RabbitTemplate rabbitTemplate;
 
     public void send(Message message) throws Exception {
